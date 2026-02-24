@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants,easeOut } from "framer-motion";
 export default function ContactSection() {
 
 
@@ -20,7 +20,7 @@ export default function ContactSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: easeOut
       }
     }
   };

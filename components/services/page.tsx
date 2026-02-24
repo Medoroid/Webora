@@ -8,7 +8,7 @@ import {
   PenTool,
   Plug,
 } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants,easeOut } from "framer-motion";
 
 const services = [
   { icon: Code, title: "Web Applications", desc: "Scalable React & Next.js web apps with clean architecture." },
@@ -35,17 +35,24 @@ const container: Variants = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: easeOut
       }
     }
   };
 
   return (
     <motion.section
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
+       variants={{
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  }}
       id="services"
       className="relative bg-[#0F172A] text-white py-28 px-6 overflow-hidden"
     >

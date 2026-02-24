@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants,easeOut } from "framer-motion";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
@@ -20,16 +20,23 @@ export default function Footer() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: easeOut }
     }
   };
 
   return (
     <motion.footer
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
+       variants={{
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  }}
       className="relative bg-[#020617] text-white pt-20 pb-10 px-6 overflow-hidden border-t border-white/10"
     >
 

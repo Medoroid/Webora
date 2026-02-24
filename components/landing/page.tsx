@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import background from "../../public/63f18a6dfb.jpg";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants,easeOut } from "framer-motion";
 import Link from "next/link";
 
 export default function Landing() {
@@ -22,7 +22,7 @@ export default function Landing() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: easeOut }
     }
   };
 

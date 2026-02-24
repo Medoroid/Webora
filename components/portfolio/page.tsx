@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants,easeOut } from "framer-motion";
 export default function PortfolioSection() {
   const projects = [
     { title: "E-Commerce Website", category: "Web Development", image: "/portfolio/project1.jpg" },
@@ -25,7 +25,7 @@ const container: Variants = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: easeOut
       }
     }
   };

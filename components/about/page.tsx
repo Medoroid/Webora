@@ -1,26 +1,29 @@
 "use client";
 
 import { CheckCircle, Code, Users, Rocket } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { motion, easeOut, type Variants } from "framer-motion";
 
 export default function About() {
 
-  const container = {
+  const container: Variants = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: {
+        duration: 0.6,
+        ease: easeOut, // ✅ الحل هنا
+      },
+    },
   };
 
   return (
@@ -47,7 +50,8 @@ export default function About() {
             variants={item}
             className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight"
           >
-            About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            About{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Webora
             </span>
           </motion.h2>
@@ -65,7 +69,7 @@ export default function About() {
             {[
               "Clean & scalable code architecture",
               "Modern UI/UX with high conversion",
-              "Fast performance & SEO optimized"
+              "Fast performance & SEO optimized",
             ].map((text, index) => (
               <motion.li
                 key={index}
@@ -93,10 +97,7 @@ export default function About() {
         </motion.div>
 
         {/* Stats */}
-        <motion.div
-          variants={container}
-          className="grid grid-cols-2 gap-6"
-        >
+        <motion.div variants={container} className="grid grid-cols-2 gap-6">
           <Stat icon={Code} number="50+" text="Projects Completed" />
           <Stat icon={Users} number="30+" text="Happy Clients" />
           <Stat icon={Rocket} number="3+" text="Years Experience" />
@@ -108,12 +109,24 @@ export default function About() {
   );
 }
 
-function Stat({ icon: Icon, number, text }) {
+/* -------------------- Stat Component -------------------- */
+
+type StatProps = {
+  icon: any;
+  number: string;
+  text: string;
+};
+
+function Stat({ icon: Icon, number, text }: StatProps) {
   return (
     <motion.div
       variants={{
         hidden: { opacity: 0, scale: 0.8 },
-        show: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+        show: {
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 0.5, ease: easeOut },
+        },
       }}
       whileHover={{ y: -8 }}
       className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center transition-all duration-300 hover:shadow-[0_0_30px_#22D3EE55]"
