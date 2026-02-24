@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper/modules";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/pagination";

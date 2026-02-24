@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 export default function PortfolioSection() {
   const projects = [
     { title: "E-Commerce Website", category: "Web Development", image: "/portfolio/project1.jpg" },
@@ -11,24 +11,24 @@ export default function PortfolioSection() {
     { title: "Mobile App Design", category: "UI/UX", image: "/portfolio/project5.jpg" },
     { title: "Startup Website", category: "Web Development", image: "/portfolio/project6.jpg" },
   ];
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
+const container: Variants = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.15 }
     }
-  }
-};
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
     <motion.section variants={container} initial='hidden' whileInView={'show'}  id="portfolio" className="relative bg-[#020617] text-white py-28 px-6 overflow-hidden">
