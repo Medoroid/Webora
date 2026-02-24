@@ -3,21 +3,24 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
   import { motion } from "framer-motion";
 export default function Footer() {
-  const container = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.15 }
-    }
-  };
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
-  const item = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1]
     }
-  };
+  }
+};
 
   return (
     <motion.footer variants={container} initial='hidden' whileInView={'show'}  className="relative bg-[#020617] text-white pt-20 pb-10 px-6 overflow-hidden border-t border-white/10">

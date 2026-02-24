@@ -21,21 +21,24 @@ const services = [
 
 export default function Services() {
 
-  const container = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.15 }
-    }
-  };
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
-  const item = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1]
     }
-  };
+  }
+};
 
   return (
     <motion.section
