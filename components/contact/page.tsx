@@ -113,56 +113,77 @@ export default function ContactSection() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            variants={item}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl space-y-6"
-          >
-            <motion.input
-              variants={item}
-              type="text"
-              name="name"
-              required
-              placeholder="Your Name"
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
-            />
+      <div className="grid md:grid-cols-2 gap-12 items-start">
 
-            <motion.input
-              variants={item}
-              type="email"
-              name="email"
-              required
-              placeholder="Your Email"
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
-            />
+  {/* Info */}
+  <div className="space-y-6">
+    <motion.div variants={item} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+      <h3 className="text-xl font-semibold mb-2">📍 Address</h3>
+      <p className="text-gray-400">El Mahalla El Kubra, 31951</p>
+    </motion.div>
 
-            <motion.textarea
-              variants={item}
-              name="message"
-              rows={5}
-              required
-              placeholder="Your Message"
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
-            />
+    <motion.div variants={item} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+      <h3 className="text-xl font-semibold mb-2">📧 Email</h3>
+      <p className="text-gray-400">webora27@gmail.com</p>
+    </motion.div>
 
-            <motion.button
-              variants={item}
-              type="submit"
-              disabled={loading}
-              className="w-full py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold shadow-[0_0_25px_#22D3EE] transition disabled:opacity-50"
-            >
-              {loading ? "Sending..." : "Send Message →"}
-            </motion.button>
+    <motion.div variants={item} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+      <h3 className="text-xl font-semibold mb-2">📞 Phone</h3>
+      <p className="text-gray-400">+20 10 33944929</p>
+    </motion.div>
+  </div>
 
-            {success && (
-              <p className="text-green-400 text-sm text-center">
-                ✅ Message sent successfully!
-              </p>
-            )}
-          </motion.form>
-        </div>
+  {/* Form */}
+  <motion.form
+    onSubmit={handleSubmit}
+    variants={item}
+    className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl space-y-6"
+  >
+    <motion.input
+      variants={item}
+      type="text"
+      name="name"
+      required
+      placeholder="Your Name"
+      className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
+    />
+
+    <motion.input
+      variants={item}
+      type="email"
+      name="email"
+      required
+      placeholder="Your Email"
+      className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
+    />
+
+    <motion.textarea
+      variants={item}
+      name="message"
+      rows={5}
+      required
+      placeholder="Your Message"
+      className="w-full p-4 rounded-xl bg-white/10 border border-white/10 focus:outline-none focus:border-cyan-400"
+    />
+
+    <motion.button
+      variants={item}
+      type="submit"
+      disabled={loading}
+      className="w-full py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold shadow-[0_0_25px_#22D3EE] transition disabled:opacity-50"
+    >
+      {loading ? "Sending..." : "Send Message →"}
+    </motion.button>
+
+    {success && (
+      <p className="text-green-400 text-sm text-center">
+        ✅ Message sent successfully!
+      </p>
+    )}
+  </motion.form>
+
+</div>
+          
       </motion.div>
     </motion.section>
   );
